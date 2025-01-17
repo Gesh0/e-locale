@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+* {
+  font: var(--font);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "wght" 300;
+  font-weight: 300;
+}
+
+.icon-24 {
+  font-size: 1.5rem;
+  font-variation-settings: "opsz" 24;
+}
+
+.icon-40 {
+  font-size: 2.5rem;
+  font-variation-settings: "opsz" 40;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+h6 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+h4 {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
