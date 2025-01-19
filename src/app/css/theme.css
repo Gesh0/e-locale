@@ -1,22 +1,60 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+  --surface-primary: hsl(0, 0%, 100%);
+  --surface-secondary: hsl(0, 0%, 10%);
+  --typo-primary: hsl(0, 0%, 10%);
+  --typo-secondary: hsl(0, 0%, 20%);
+  --typo-tertiary: hsl(0, 0%, 40%);
+  --img: hsl(0, 0%, 90%);
 }
 
 /* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    color-scheme: dark;
   }
 } */
 
-body {
-  color: var(--foreground);
-  background: var(--background);
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --surface-primary: hsl(0, 0%, 10%);
+    --surface-secondary: hsl(0, 0%, 0%);
+    --typo-primary: hsl(0, 0%, 90%);
+    --typo-secondary: hsl(0, 0%, 80%);
+    --typo-tertiary: hsl(0, 0%, 60%);
+    --img: hsl(0, 0%, 15%);
+  }
+} */
+
+body,
+header {
+  background-color: var(--surface-primary);
+}
+
+footer {
+  background-color: var(--surface-secondary);
+}
+
+footer > *,
+footer > * > * > * {
+  color: white !important;
+}
+
+image {
+  background-color: var(--img);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--typo-primary);
+}
+
+p {
+  color: var(--typo-secondary);
+}
+
+span {
+  color: var(--typo-tertiary);
 }

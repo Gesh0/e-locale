@@ -34,8 +34,7 @@
 /* MISC */
 
 .underline {
-  border-bottom: 1px solid
-    hsl(0, 0%, 20%);
+  border-bottom: 1px solid var(--typo-tertiary);
 }
 .pointer {
   cursor: pointer;
