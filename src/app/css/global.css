@@ -1,4 +1,9 @@
+
 main {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -8,7 +13,6 @@ main {
 section {
   padding: 0 1rem;
   min-height: 2rem;
-  max-width: 768px;
 
   display: flex;
   flex-direction: column;
@@ -21,7 +25,6 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  width: 100vw;
   position: sticky;
   top: 0px;
 }

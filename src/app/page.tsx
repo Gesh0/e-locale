@@ -6,7 +6,6 @@ import Accordion from "./components/Accordion"
 export default function Home() {
   return (
     <>
-      <main>
         <IMG></IMG>
         {/* <Image src='/main.avif' alt='' fill className='ar-1' /> */}
         <section>
@@ -34,7 +33,6 @@ export default function Home() {
           </h2>
           <Accordion />
         </section>
-      </main>
     </>
   )
 }

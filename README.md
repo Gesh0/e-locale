@@ -1,7 +1,7 @@
 # TODO
 
 - [X] nav comp
-- [ ] responsiveness
+- [X] responsiveness
 - [ ] util state machines / radix
 - [ ] json data
 - [ ] menu page

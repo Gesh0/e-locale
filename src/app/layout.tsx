@@ -30,7 +30,7 @@ export default function RootLayout({
     <html className={`${font.variable}`} lang="en">
       <body className={`${font.className}`}>
         <Header />
-        <main>{children}</main>
+        <main className="resp-cont">{children}</main>
         <Footer />
       </body>
     </html>
