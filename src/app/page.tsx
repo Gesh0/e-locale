@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Review from "./components/Review"
 import IMG from "./components/IMG"
-import Accordion from "./components/Accordion"
+import Accordion from "./components/FAQ"
 
 export default function Home() {
   return (
