@@ -1,9 +1,12 @@
+header,footer,main {
+  padding-inline: max(
+    1rem,
+    calc((100% - 768px) / 2)
+  ) !important;
+}
 
 main {
   width: 100%;
-  max-width: 768px;
-  margin: 0 auto;
-
   display: flex;
   flex-direction: column;
   gap: 4rem;
