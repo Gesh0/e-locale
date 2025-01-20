@@ -1,0 +1,66 @@
+{
+  "menu": {
+    "categories": [
+      {
+        "name": "Coffee",
+        "items": [
+          {
+            "title": "Espresso",
+            "desc": "A strong and bold coffee made by forcing hot water through finely-ground coffee beans. Perfect for a quick caffeine boost.",
+            "price": "$2.50"
+          },
+          {
+            "title": "Latte",
+            "desc": "A smooth and creamy coffee made with espresso and steamed milk, topped with a light layer of foam.",
+            "price": "$3.50"
+          }
+        ]
+      },
+      {
+        "name": "Tea",
+        "items": [
+          {
+            "title": "Green Tea",
+            "desc": "A refreshing and healthy tea made from steamed green tea leaves. Rich in antioxidants and perfect for any time of day.",
+            "price": "$2.00"
+          },
+          {
+            "title": "Chai Latte",
+            "desc": "A spiced tea made with black tea, milk, and a blend of aromatic spices. Sweet and warming.",
+            "price": "$3.00"
+          }
+        ]
+      }
+    ]
+  },
+  "FAQ": [
+    {
+      "question": "What are your opening hours?",
+      "answer": "We are open from 7 AM to 9 PM every day."
+    },
+    {
+      "question": "Do you offer vegan options?",
+      "answer": "Yes, we have a variety of vegan options available on our menu."
+    },
+    {
+      "question": "Do you have free Wi-Fi?",
+      "answer": "Yes, we offer free Wi-Fi for all our customers."
+    },
+    {
+      "question": "Can I make a reservation?",
+      "answer": "We do not take reservations, but we have plenty of seating available."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Downtown Cafe",
+      "location": "123 Main St, Downtown",
+      "working_hours": "7 AM - 9 PM"
+    },
+    {
+      "name": "Uptown Cafe",
+      "location": "456 Elm St, Uptown",
+      "working_hours": "8 AM - 8 PM"
+    }
+  ]
+}

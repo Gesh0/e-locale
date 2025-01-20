@@ -1,12 +1,10 @@
 # TODO
 
-- [X] nav comp
-- [X] responsiveness
-- [X] responsiveness ++
-- [ ] util state machines / radix
-- [ ] json data
-- [ ] menu page
-
+- [X] util state machines / radix
+- [ ] CMS
+- [ ] faq data
+- [ ] locations data
+- [ ] menu data
 ---
 
 admin...
