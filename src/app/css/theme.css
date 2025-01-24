@@ -5,15 +5,17 @@
   --typo-secondary: hsl(0, 0%, 20%);
   --typo-tertiary: hsl(0, 0%, 40%);
   --img: hsl(0, 0%, 90%);
+  --error: hsl(0, 75%, 40%);
+  --on-error: hsl(0, 0%, 100%);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-} */
+}
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --surface-primary: hsl(0, 0%, 10%);
     --surface-secondary: hsl(0, 0%, 0%);
@@ -21,8 +23,10 @@
     --typo-secondary: hsl(0, 0%, 80%);
     --typo-tertiary: hsl(0, 0%, 60%);
     --img: hsl(0, 0%, 15%);
+    --error: hsl(0, 75%, 20%);
+    --on-error: hsl(0, 0%, 100%);
   }
-} */
+}
 
 body,
 header {
@@ -57,4 +61,14 @@ p {
 
 span {
   color: var(--typo-tertiary);
+}
+
+.error {
+  background-color: var(--error);
+}
+.error > * {
+  color: var(--on-error);
+}
+.error > * > * {
+  color: var(--on-error);
 }

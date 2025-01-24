@@ -1,10 +1,6 @@
 # TODO
 
-- [X] util state machines / radix
-- [ ] CMS
-- [ ] faq data
-- [ ] locations data
-- [ ] menu data
----
-
-admin...
+- [ ] fix theming
+- [ ] improve css
+- [ ] populate db
+- [ ] menu components
