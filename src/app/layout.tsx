@@ -29,8 +29,8 @@ export default function RootLayout({
   return (
     <html className={`${font.variable}`} lang="en">
       <body className={`${font.className}`}>
-        <Header />
-        <main className="resp-cont">{children}</main>
+        <Header/>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

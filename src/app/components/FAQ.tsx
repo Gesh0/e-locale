@@ -31,7 +31,7 @@ type ItemProps = {
 function Item({ val, title, content }: ItemProps) {
   return (
     <Accordion.Item value={val} className="FAQ item">
-      <Accordion.Trigger className="FAQ trigger">
+      <Accordion.Trigger className="FAQ trigger underline">
         <h5>{title}</h5>
         <span className="material-symbols-outlined icon-24">
           expand_circle_down

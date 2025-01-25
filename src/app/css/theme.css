@@ -1,12 +1,33 @@
 :root {
   --surface-primary: hsl(0, 0%, 100%);
+  --on-primary-high: hsl(0, 0%, 0%);
+  --on-primamry-mid: hsl(0, 0%, 20%);
+  --on-primary-low: hsl(0, 0%, 80%);
+
   --surface-secondary: hsl(0, 0%, 10%);
-  --typo-primary: hsl(0, 0%, 10%);
-  --typo-secondary: hsl(0, 0%, 20%);
-  --typo-tertiary: hsl(0, 0%, 40%);
-  --img: hsl(0, 0%, 90%);
-  --error: hsl(0, 75%, 40%);
+  --on-secondary-high: hsl(0, 0%, 100%);
+  --on-secondary-mid: hsl(0, 0%, 80%);
+  --on-secondary-low: hsl(0, 0%, 20%);
+
+  --surface-error: hsl(0, 75%, 35%);
   --on-error: hsl(0, 0%, 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-primary: hsl(0, 0%, 10%);
+    --on-primary-high: hsl(0, 0%, 100%);
+    --on-primamry-mid: hsl(0, 0%, 80%);
+    --on-primary-low: hsl(0, 0%, 20%);
+
+    --surface-secondary: hsl(0, 0%, 0%);
+    --on-secondary-high: hsl(0, 0%, 100%);
+    --on-secondary-mid: hsl(0, 0%, 80%);
+    --on-secondary-low: hsl(0, 0%, 20%);
+
+    --surface-error: hsl(0, 75%, 25%);
+    --on-error: hsl(0, 0%, 100%);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,60 +36,40 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --surface-primary: hsl(0, 0%, 10%);
-    --surface-secondary: hsl(0, 0%, 0%);
-    --typo-primary: hsl(0, 0%, 90%);
-    --typo-secondary: hsl(0, 0%, 80%);
-    --typo-tertiary: hsl(0, 0%, 60%);
-    --img: hsl(0, 0%, 15%);
-    --error: hsl(0, 75%, 20%);
-    --on-error: hsl(0, 0%, 100%);
-  }
+* {
+  background-color: inherit;
+  color: inherit;
 }
 
-body,
-header {
+body {
   background-color: var(--surface-primary);
+  color: var(--on-primary-high);
+}
+
+body p,
+body span {
+  color: var(--on-primamry-mid);
+}
+
+body .underline {
+  border-bottom: 1px solid var(--on-primary-low)!important;
 }
 
 footer {
   background-color: var(--surface-secondary);
+  color: var(--on-secondary-high);
 }
 
-footer > *,
-footer > * > * > * {
-  color: white !important;
+footer p,
+footer span {
+  color: var(--on-secondary-mid);
 }
 
-image {
-  background-color: var(--img);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--typo-primary);
-}
-
-p {
-  color: var(--typo-secondary);
-}
-
-span {
-  color: var(--typo-tertiary);
+footer .underline {
+  border-bottom: 1px solid var(--on-secondary-low)!important;
 }
 
 .error {
-  background-color: var(--error);
-}
-.error > * {
-  color: var(--on-error);
-}
-.error > * > * {
+  background-color: var(--surface-error);
   color: var(--on-error);
 }
