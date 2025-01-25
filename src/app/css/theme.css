@@ -50,9 +50,12 @@ body p,
 body span {
   color: var(--on-primamry-mid);
 }
+body .IMG {
+  background-color: var(--on-primary-low);
+}
 
 body .underline {
-  border-bottom: 1px solid var(--on-primary-low)!important;
+  border-bottom: 1px solid var(--on-primary-low) !important;
 }
 
 footer {
@@ -66,10 +69,12 @@ footer span {
 }
 
 footer .underline {
-  border-bottom: 1px solid var(--on-secondary-low)!important;
+  border-bottom: 1px solid var(--on-secondary-low) !important;
 }
 
 .error {
   background-color: var(--surface-error);
+}
+.error * {
   color: var(--on-error);
 }

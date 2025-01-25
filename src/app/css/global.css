@@ -1,10 +1,7 @@
 header,
 footer,
 section {
-  padding-inline: max(
-    1rem,
-    calc((100% - 768px) / 2)
-  ) !important;
+  padding-inline: max(1rem, calc((100% - 768px) / 2)) !important;
 }
 
 main {
@@ -69,9 +66,39 @@ dialog.nav::backdrop {
   justify-content: space-between;
 }
 
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.items {
+  display: flex;
+  gap: 1rem;
+}
+
+.category .item {
+  display: flex;
+  flex-direction: column;
+}
+
+.category .item .IMG {
+  width: 256px;
+  aspect-ratio: 1/1;
+  margin-bottom: 0.5rem;
+}
+
+.category .item > * > * {
+  padding-block: 0.125rem;
+}
 
 .IMG {
-  background-color: var(--img);
   width: 100%;
   aspect-ratio: 2/1;
 }

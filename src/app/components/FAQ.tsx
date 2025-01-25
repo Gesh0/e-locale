@@ -1,16 +1,16 @@
-import { get } from '@lib/pocketbase'
+import { getFullList } from '@lib/pocketbase'
 import * as Accordion from '@radix-ui/react-accordion'
 import Error from './Error'
 
 export default async function FAQ({}) {
-  const data = await get('FAQ')
+  const data = await getFullList('FAQ')
   console.log(data)
 
   return (
-    <Accordion.Root className="FAQ" type="single">
+    <Accordion.Root className="FAQ" type="single" collapsible >
       {data &&
         data.length > 0 &&
-        data.map((item, index) => (
+        data.map((item) => (
           <Item
             val={item.id}
             title={item.question}

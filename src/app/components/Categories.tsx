@@ -1,49 +1,43 @@
+import { getFullList } from '@lib/pocketbase'
 import * as Accordion from '@radix-ui/react-accordion'
+import Error from './Error'
 
-export default function Categories({}) {
+export default async function Categories({}) {
+  const data = await getFullList('categories', { expand: 'items' })
+
   return (
-    <Accordion.Root type="single">
-      <Category ></Category>
+    <Accordion.Root type="single" className="categories" collapsible>
+      {data &&
+        data.map((category) => <Category category={category}></Category>)}
+      {!data && <Error></Error>}
     </Accordion.Root>
   )
 }
 
-function Category() {
+function Category({ category }: any) {
   return (
-    <>
-      <h1>Category</h1>
-      <Item></Item>
-      <Item></Item>
-      <Item></Item>
-    </>
+    <div className="category">
+      <h1>{category.name}</h1>
+      <div className="items">
+        {category.expand.items.map((item: any) => (
+          <Item item={item}></Item>
+        ))}
+      </div>
+    </div>
   )
 }
 
-function Item() {
+function Item({ item }: any) {
   return (
-    <Accordion.Item value="TEMP">
+    <Accordion.Item value={item.id} className="item">
       <Accordion.Trigger>
-        {/* IMG TITLE PRICE*/}
+        <div className="IMG"></div>
+        <h6>{item.name}</h6>
+        <p>{item.price} mkd</p>
       </Accordion.Trigger>
       <Accordion.Content>
-        {/* DESCRIPTION */}
+        <p>{item.desc}</p>
       </Accordion.Content>
     </Accordion.Item>
   )
 }
-
-// function Item() {
-//   return (
-//     <div style={{ flexShrink: 0 }} className="flex col gap-05">
-//       <div
-//         style={{
-//           width: '256px',
-//           height: '256px',
-//           backgroundColor: 'gray',
-//         }}
-//       ></div>
-//       <h6>Item title</h6>
-//       <p>Price</p>
-//     </div>
-//   )
-// }
