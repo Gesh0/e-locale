@@ -9,7 +9,7 @@
   --on-secondary-mid: hsl(0, 0%, 80%);
   --on-secondary-low: hsl(0, 0%, 20%);
 
-  --surface-error: hsl(0, 75%, 35%);
+  --surface-error: hsl(0, 90%, 50%);
   --on-error: hsl(0, 0%, 100%);
 }
 
