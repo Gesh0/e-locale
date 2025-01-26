@@ -1,9 +1,12 @@
-import { getFullList } from '@lib/pocketbase'
+import { Category_I, getFullList } from '@lib/pocketbase'
 import * as Accordion from '@radix-ui/react-accordion'
 import Error from './Error'
 
 export default async function Categories({}) {
-  const data = await getFullList('categories', { expand: 'items' })
+  const data = await getFullList<Category_I[]>('categories', {
+    expand: 'items',
+  })
+  console.log(data)
 
   return (
     <Accordion.Root type="single" className="categories" collapsible>

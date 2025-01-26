@@ -1,9 +1,11 @@
 # TODO
 
 - [X] fix theming
-- [ ] menu components
-- [ ] pb types :(
-- [ ] improve css
+- [X] menu components
+- [X] pb types :(
+- [ ] expand error UI
+- [ ] improve css ?
 - [ ] populate db
 - [ ] revalidation
+- [ ] Admin UI
 - [ ] scritps 
