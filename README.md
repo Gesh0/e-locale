@@ -1,11 +1,14 @@
 # TODO
 
-- [X] fix theming
-- [X] menu components
-- [X] pb types :(
-- [ ] expand error UI
+- [x] fix theming
+- [x] menu components
+- [x] pb types :(
+- [x] expand error UI
+---
+- [ ] menu scroll
+- [ ] types for comps
 - [ ] improve css ?
 - [ ] populate db
 - [ ] revalidation
 - [ ] Admin UI
-- [ ] scritps 
+- [ ] scritps

@@ -6,18 +6,20 @@ export default async function Categories({}) {
   const data = await getFullList<Category_I[]>('categories', {
     expand: 'items',
   })
-  console.log(data)
 
+  if (!data) return <Error />
   return (
     <Accordion.Root type="single" className="categories" collapsible>
-      {data &&
-        data.map((category) => <Category category={category}></Category>)}
-      {!data && <Error></Error>}
+      {data.map((category) => (
+        <Category category={category}></Category>
+      ))}
     </Accordion.Root>
   )
 }
 
 function Category({ category }: any) {
+  if (!category.expand?.items) return <Error />
+
   return (
     <div className="category">
       <h1>{category.name}</h1>

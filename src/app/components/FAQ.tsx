@@ -3,17 +3,15 @@ import * as Accordion from '@radix-ui/react-accordion'
 import Error from './Error'
 
 export default async function FAQ({}) {
-  const data = await getFullList<FAQ_I>('FA')
-  console.log(data)
+  const data = await getFullList<FAQ_I>('FAQ')
+
+  if (!data) return <Error />
 
   return (
     <Accordion.Root className="FAQ" type="single" collapsible>
-      {data &&
-        data.length > 0 &&
-        data.map((item) => (
-          <Item val={item.id} title={item.question} content={item.answer} />
-        ))}
-      {!data && <Error></Error>}
+      {data.map((item) => (
+        <Item val={item.id} title={item.question} content={item.answer} />
+      ))}
     </Accordion.Root>
   )
 }
