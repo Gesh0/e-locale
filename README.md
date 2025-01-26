@@ -6,9 +6,9 @@
 - [x] expand error UI
 - [X] menu scroll
 - [X] types for comps
+- [X] images
 ---
 - [ ] populate db
-- [ ] images
 - [ ] revalidation
 - [ ] improve css ?
 - [ ] Admin UI

@@ -1,14 +1,17 @@
-import { appendImgURL, Category_I, getFullList, Item_I } from '@lib/pocketbase'
+import {
+  Category_I,
+  createImageURL,
+  getFullList,
+  Item_I,
+} from '@lib/pocketbase'
 import * as Accordion from '@radix-ui/react-accordion'
 import Error from './Error'
 import Image from 'next/image'
 
 export default async function Categories({}) {
-  const data = appendImgURL(
-    await getFullList<Category_I>('categories', {
-      expand: 'items',
-    })
-  )
+  const data = await getFullList<Category_I>('categories', {
+    expand: 'items',
+  })
 
   if (!data) return <Error />
   return (
@@ -39,9 +42,9 @@ function Item({ item }: { item: Item_I }) {
   return (
     <Accordion.Item value={item.id} className="item">
       <Accordion.Trigger>
-        {item.imageURL ? (
+        {item.image ? (
           <Image
-            src={item.imageURL}
+            src={createImageURL(item)}
             alt={item.name}
             width="256"
             height="256"
