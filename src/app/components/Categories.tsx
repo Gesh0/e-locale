@@ -1,9 +1,9 @@
-import { Category_I, getFullList } from '@lib/pocketbase'
+import { Category_I, getFullList, Item_I } from '@lib/pocketbase'
 import * as Accordion from '@radix-ui/react-accordion'
 import Error from './Error'
 
 export default async function Categories({}) {
-  const data = await getFullList<Category_I[]>('categories', {
+  const data = await getFullList<Category_I>('categories', {
     expand: 'items',
   })
 
@@ -17,14 +17,14 @@ export default async function Categories({}) {
   )
 }
 
-function Category({ category }: any) {
+function Category({ category }: { category: Category_I }) {
   if (!category.expand?.items) return <Error />
 
   return (
     <div className="category">
       <h1>{category.name}</h1>
       <div className="items">
-        {category.expand.items.map((item: any) => (
+        {category.expand.items.map((item) => (
           <Item item={item}></Item>
         ))}
       </div>
@@ -32,7 +32,7 @@ function Category({ category }: any) {
   )
 }
 
-function Item({ item }: any) {
+function Item({ item }: { item: Item_I }) {
   return (
     <Accordion.Item value={item.id} className="item">
       <Accordion.Trigger>

@@ -19,17 +19,15 @@ interface Base {
   updated: string
 }
 
-interface Expand<T = unknown> extends Base {
-  expand: T
-}
-
 export interface FAQ_I extends Base {
   question: string
   answer: string
 }
 
-export interface Category_I extends Expand<Item_I[]> {
+export interface Category_I extends Base {
   name: string
+  expand: { items: Item_I[] }
+  items: string[]
 }
 
 export interface Item_I extends Base {
@@ -38,11 +36,11 @@ export interface Item_I extends Base {
   desc: string
 }
 
-interface Error {
-  isAbort: boolean
-  name: string
-  originalError: unknown
-  response: unknown
-  status: number
-  url: string
-}
+// interface Error {
+//   isAbort: boolean
+//   name: string
+//   originalError: unknown
+//   response: unknown
+//   status: number
+//   url: string
+// }

@@ -10,7 +10,7 @@ export default async function FAQ({}) {
   return (
     <Accordion.Root className="FAQ" type="single" collapsible>
       {data.map((item) => (
-        <Item val={item.id} title={item.question} content={item.answer} />
+        <Item item={item} />
       ))}
     </Accordion.Root>
   )
@@ -22,17 +22,17 @@ type ItemProps = {
   content: string
 }
 
-function Item({ val, title, content }: ItemProps) {
+function Item({ item }: { item: FAQ_I }) {
   return (
-    <Accordion.Item value={val} className="FAQ item">
+    <Accordion.Item value={item.id} className="FAQ item">
       <Accordion.Trigger className="FAQ trigger underline">
-        <h5>{title}</h5>
+        <h5>{item.question}</h5>
         <span className="material-symbols-outlined icon-24">
           expand_circle_down
         </span>
       </Accordion.Trigger>
       <Accordion.Content className="FAQ content">
-        <p className="pb-1">{content}</p>
+        <p className="pb-1">{item.answer}</p>
       </Accordion.Content>
     </Accordion.Item>
   )

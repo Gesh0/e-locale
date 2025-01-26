@@ -4,11 +4,11 @@
 - [x] menu components
 - [x] pb types :(
 - [x] expand error UI
+- [X] menu scroll
+- [X] types for comps
 ---
-- [ ] menu scroll
-- [ ] types for comps
-- [ ] improve css ?
 - [ ] populate db
 - [ ] revalidation
+- [ ] improve css ?
 - [ ] Admin UI
 - [ ] scritps
