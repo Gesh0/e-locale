@@ -8,6 +8,7 @@
 - [X] types for comps
 ---
 - [ ] populate db
+- [ ] images
 - [ ] revalidation
 - [ ] improve css ?
 - [ ] Admin UI

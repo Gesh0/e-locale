@@ -10,6 +10,29 @@ export async function getFullList<T>(collection: string, params?: any) {
   }
 }
 
+export function appendImgURL<T>(data: T): T {
+  if (Array.isArray(data)) {
+    return data.map(appendImgURL) as T
+  }
+
+  if (data && typeof data === 'object') {
+    return Object.entries(data).reduce(
+      (acc, [key, value]) => ({
+        ...acc,
+        [key]: typeof value === 'object' ? appendImgURL(value) : value,
+        ...(key === 'image' && 'id' in data && data['image']
+          ? {
+              imageURL: `${process.env.NEXT_PUBLIC_PB_URL}/api/files/items/${data['id']}/${data['image']}`,
+            }
+          : {}),
+      }),
+      {} as T
+    )
+  }
+
+  return data
+}
+
 // TYPES
 interface Base {
   collectionName: string
@@ -34,6 +57,8 @@ export interface Item_I extends Base {
   name: string
   price: number
   desc: string
+  image: string
+  imageURL: string
 }
 
 // interface Error {
