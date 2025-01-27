@@ -42,6 +42,12 @@ export interface Item_I extends Base {
   imageURL: string
 }
 
+export interface Location_I extends Base {
+  name:string
+  address:string
+  hours:string
+}
+
 // interface Error {
 //   isAbort: boolean
 //   name: string

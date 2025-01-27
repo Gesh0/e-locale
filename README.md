@@ -8,11 +8,11 @@
 - [X] types for comps
 - [X] images
 - [X] locations
+- [X] go back comp
 ---
-- [ ] go back comp
+- [ ] img loading spinner
 - [ ] embed maps
 - [ ] Admin comps 
 - [ ] revalidation
-- [ ] img loading spinner
 - [ ] improve css ?
 - [ ] scritps
