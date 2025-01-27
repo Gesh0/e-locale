@@ -26,7 +26,7 @@ function Item({ item }: { item: FAQ_I }) {
   return (
     <Accordion.Item value={item.id} className="FAQ item">
       <Accordion.Trigger className="FAQ trigger underline">
-        <h5>{item.question}</h5>
+        <h6>{item.question}</h6>
         <span className="material-symbols-outlined icon-24">
           expand_circle_down
         </span>

@@ -64,6 +64,7 @@ dialog.nav::backdrop {
   display: flex;
   padding-bottom: 0.5rem;
   justify-content: space-between;
+  align-items: center;
 }
 
 .categories {
@@ -102,4 +103,6 @@ dialog.nav::backdrop {
 .IMG {
   width: 100%;
   aspect-ratio: 2/1;
+  max-width: 768px;
+  align-self: center;
 }

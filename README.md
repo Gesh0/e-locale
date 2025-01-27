@@ -7,9 +7,12 @@
 - [X] menu scroll
 - [X] types for comps
 - [X] images
+- [X] locations
 ---
-- [ ] populate db
+- [ ] go back comp
+- [ ] embed maps
+- [ ] Admin comps 
 - [ ] revalidation
+- [ ] img loading spinner
 - [ ] improve css ?
-- [ ] Admin UI
 - [ ] scritps

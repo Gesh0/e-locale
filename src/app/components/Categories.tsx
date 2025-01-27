@@ -17,7 +17,7 @@ export default async function Categories({}) {
   return (
     <Accordion.Root type="single" className="categories" collapsible>
       {data.map((category) => (
-        <Category category={category}></Category>
+        <Category category={category} key={category.id}></Category>
       ))}
     </Accordion.Root>
   )
@@ -31,7 +31,7 @@ function Category({ category }: { category: Category_I }) {
       <h1>{category.name}</h1>
       <div className="items">
         {category.expand.items.map((item) => (
-          <Item item={item}></Item>
+          <Item item={item} key={item.id}></Item>
         ))}
       </div>
     </div>

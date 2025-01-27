@@ -1,7 +1,13 @@
+import { getFullList } from "@lib/pocketbase"
 import IMG from "../components/IMG"
 import GoBack from "../generic/GoBack"
+import Error from "../components/Error"
 
-export default function Locations({}) {
+export default async function Locations({}) {
+
+  const data = await getFullList('locations')
+  console.log(data)
+
   return (
     <>
       <section>
@@ -12,20 +18,21 @@ export default function Locations({}) {
         <h1 className='underline pb-05'>
           Locations
         </h1>
-        <Item />
-        <Item />
-        <Item />
+        {data && data.map((location:any) =>
+          <Item location={location} key={location.id!}></Item>
+        )}
+        {!data && <Error/>}
       </section>
     </>
   )
 }
 
-function Item() {
+function Item({location} : {location:any}) {
   return (
     <div className='flex col gap-05'>
-      <h6>Lorem ipsum dolor sit.</h6>
-      <p>- Full address</p>
-      <p>- Working hours</p>
+      <h6>{location.name}</h6>
+      <p>- {location.address}</p>
+      <p>- {location.hours}</p>
     </div>
   )
 }
