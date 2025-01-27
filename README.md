@@ -9,10 +9,14 @@
 - [X] images
 - [X] locations
 - [X] go back comp
+- [X] auth page
 ---
-- [ ] img loading spinner
+- [ ] auth password
+- [ ] auth Oauth2
+- [ ] auth refresh
+---
+- [ ] pocketbase in server
 - [ ] embed maps
 - [ ] Admin comps 
 - [ ] revalidation
-- [ ] improve css ?
-- [ ] scritps
+- [ ] route protection middleware

@@ -103,6 +103,21 @@ dialog.nav::backdrop {
 .IMG {
   width: 100%;
   aspect-ratio: 2/1;
-  max-width: 768px;
+  max-width: 1024px;
   align-self: center;
+}
+
+input{
+  padding: 0.5rem;
+}
+
+.auth button {
+  padding: 1rem;
+  border-radius: 2px;
+  background-color: var(--surface-secondary);
+  display: flex;
+  gap: 1rem;
+  align-items:center ;
+  justify-content: center;
+  color: var(--on-secondary-high);
 }

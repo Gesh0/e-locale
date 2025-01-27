@@ -78,3 +78,11 @@ footer .underline {
 .error * {
   color: var(--on-error);
 }
+
+input{
+  background-color: var(--on-primary-low);
+  border-radius: 2px;
+}
+
+
+
