@@ -15,8 +15,8 @@
 - [ ] auth Oauth2
 - [ ] auth refresh
 ---
+- [ ] Admin comps 
+- [ ] revalidate suspense
+- [ ] revalidation
 - [ ] pocketbase in server
 - [ ] embed maps
-- [ ] Admin comps 
-- [ ] revalidation
-- [ ] route protection middleware

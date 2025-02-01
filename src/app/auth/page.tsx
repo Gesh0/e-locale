@@ -1,18 +1,33 @@
+'use client'
+
 import Image from "next/image";
 import GoBack from "../generic/GoBack";
+import { formTest } from "@lib/pocketbase";
+import { useState } from "react";
 
 export default function Auth(){
+  const [resp,setResp] = useState<any>() 
+
+  async function handleSubmit(formData:FormData){
+    const response = await formTest(formData)
+    console.log(response)
+    setResp(response)
+  }
+
+
+
   return(
     <>
     <section><GoBack/></section>
     <section className="auth">
       <h1>Authenticate as Admin</h1>
-      <form className="flex col gap-1">
+      {resp && <p>{resp.message}</p>}
+      <form className="flex col gap-1" action={handleSubmit}>
         <div className="flex col gap-05">
-        <label htmlFor="name">
-          <h6>Username</h6>
+        <label htmlFor="email">
+          <h6>Email</h6>
         </label>
-        <input type="text" name="name" />
+        <input type="text" name="email" />
         </div >
 
         <div className="flex col gap-05">
@@ -21,12 +36,15 @@ export default function Auth(){
         </label>
         <input type="password" name="password" />
         </div>
-      </form>
-      <button>
-        <Image src={'/google-logo.png'} alt="google logo" width={16} height={16}></Image>
+
+      <button type='button'>
+        <Image src={'/google-logo.png'} alt="google logo" width={20} height={20}></Image>
         Continue with Google
         </button>
-      <button>Log In</button>
+        
+      <button type="submit">Log In
+      </button>
+      </form>
     </section>
     </>
   )
