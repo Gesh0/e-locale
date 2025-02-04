@@ -1,7 +1,5 @@
 'use server'
-
 import { cookies } from 'next/headers'
-import path from 'path'
 import PocketBase from 'pocketbase'
 
 const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_URL)
@@ -21,9 +19,8 @@ export async function createImageURL(item: Item_I): Promise<string> {
 }
 
 // ADMIN
-export async function formTest(formData: FormData) {
-  'use server'
 
+export async function formTest(formData: FormData) {
   const email = formData.get('email') as string
   const password = formData.get('password') as string
 
@@ -39,14 +36,45 @@ export async function formTest(formData: FormData) {
 
     return {
       success: true,
-      message:'Success'
+      message: 'Success',
     }
-
   } catch (error: any) {
     return {
       success: false,
-      message: 'Login Failed'
+      message: 'Login Failed',
     }
+  }
+}
+
+export async function Oauth2URL() {
+  const authMethods = await pb.collection('users').listAuthMethods()
+  const provider = authMethods.oauth2.providers.find((p) => p.name === 'google')
+
+  if (!provider) throw new Error('Google is only configured provider')
+
+  const URL = `${provider.authURL}${encodeURI(
+    'http://127.0.0.1:8090/api/oauth2-redirect'
+  )}`
+
+  // const URL = `${provider.authURL}${encodeURI(
+  //   'http://127.0.0.1:8090/api/oauth2-redirect'
+  // )}`
+
+  return URL
+}
+
+export async function Oauth2Auth(code: string, state: string) {
+  try {
+    await pb
+      .collection('users')
+      .authWithOAuth2Code(
+        'google',
+        code,
+        state,
+        'http://127.0.0.1:8090/api/oauth2-redirect'
+      )
+  } catch (error: any) {
+    console.log(error.message)
   }
 }
 
