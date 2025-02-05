@@ -1,16 +1,16 @@
 'use client'
 
 import GoBack from "../generic/GoBack";
-import { formTest } from "@lib/pocketbase";
+import { passwordAuth } from "@lib/pocketbase";
 import { useState } from "react";
 import Oauth2btn from "../generic/Oauth2btn";
+import FAQ from "../components/FAQ";
 
 export default function Auth() {
   const [resp, setResp] = useState<any>()
 
   async function handleSubmit(formData: FormData) {
-    const response = await formTest(formData)
-    console.log(response)
+    const response = await passwordAuth(formData)
     setResp(response)
   }
 

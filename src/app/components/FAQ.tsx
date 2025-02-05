@@ -2,10 +2,10 @@ import { FAQ_I, getFullList } from '@lib/pocketbase'
 import * as Accordion from '@radix-ui/react-accordion'
 import Error from './Error'
 
-export default async function FAQ({}) {
+export default async function FAQ({ }) {
   const data = await getFullList<FAQ_I>('FAQ')
 
-  if (!data) return <Error />
+  if (!data || data?.length === 0) return <Error />
 
   return (
     <Accordion.Root className="FAQ" type="single" collapsible>

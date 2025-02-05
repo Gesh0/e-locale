@@ -1,13 +1,15 @@
 'use server'
 import { cookies } from 'next/headers'
-import PocketBase from 'pocketbase'
+import PocketBase, { AuthProviderInfo } from 'pocketbase'
 
 const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_URL)
+let temp: AuthProviderInfo
 
 // USER
 
 export async function getFullList<T>(collection: string, params?: any) {
   try {
+    await getAuthCookies()
     return await pb.collection(collection).getFullList<T>(params)
   } catch (error) {
     console.log(error)
@@ -20,19 +22,13 @@ export async function createImageURL(item: Item_I): Promise<string> {
 
 // ADMIN
 
-export async function formTest(formData: FormData) {
+export async function passwordAuth(formData: FormData) {
   const email = formData.get('email') as string
   const password = formData.get('password') as string
 
   try {
     await pb.collection('users').authWithPassword(email, password)
-
-    const cookieStore = await cookies()
-    cookieStore.set({
-      name: 'pb-token',
-      value: pb.authStore.token,
-      path: '/',
-    })
+    await setAuthCookies()
 
     return {
       success: true,
@@ -52,30 +48,49 @@ export async function Oauth2URL() {
 
   if (!provider) throw new Error('Google is only configured provider')
 
-  const URL = `${provider.authURL}${encodeURI(
-    'http://127.0.0.1:8090/api/oauth2-redirect'
-  )}`
+  temp = provider
 
-  // const URL = `${provider.authURL}${encodeURI(
-  //   'http://127.0.0.1:8090/api/oauth2-redirect'
-  // )}`
+  const URL =
+    provider.authURL + encodeURIComponent('http://localhost:3000/auth')
 
   return URL
 }
 
-export async function Oauth2Auth(code: string, state: string) {
+export async function Oauth2Auth(code: string) {
   try {
     await pb
       .collection('users')
       .authWithOAuth2Code(
-        'google',
+        temp.name,
         code,
-        state,
-        'http://127.0.0.1:8090/api/oauth2-redirect'
+        temp.codeVerifier,
+        'http://localhost:3000/auth'
       )
+    await setAuthCookies()
   } catch (error: any) {
-    console.log(error.message)
+    console.log(error)
   }
+}
+
+export async function isValid() {
+  return pb.authStore.isValid
+}
+
+export async function getAuthCookies() {
+  const cookieStore = await cookies()
+  const token = cookieStore.get('pb-token')?.value
+
+  if (!token) return
+
+  pb.authStore.loadFromCookie(token)
+}
+
+export async function setAuthCookies() {
+  const cookieStore = await cookies()
+  cookieStore.set({
+    name: 'pb-token',
+    value: pb.authStore.exportToCookie(),
+  })
 }
 
 // TYPES
