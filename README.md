@@ -11,8 +11,11 @@
 - [X] go back comp
 - [X] auth page
 ---
-- [ ] auth password
-- [ ] auth Oauth2
+- [X] auth password
+- [X] auth Oauth2
+- [ ] git unfuckup
+- [ ] log state
+- [ ] log out
 - [ ] auth refresh
 ---
 - [ ] Admin comps 

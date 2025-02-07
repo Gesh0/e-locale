@@ -72,11 +72,8 @@ export async function Oauth2Auth(code: string) {
   }
 }
 
-export async function isValid() {
-  return pb.authStore.isValid
-}
-
 export async function getAuthCookies() {
+  console.log('get cookies')
   const cookieStore = await cookies()
   const token = cookieStore.get('pb-token')?.value
 
@@ -86,6 +83,7 @@ export async function getAuthCookies() {
 }
 
 export async function setAuthCookies() {
+  console.log('set cookies')
   const cookieStore = await cookies()
   cookieStore.set({
     name: 'pb-token',
