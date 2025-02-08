@@ -13,13 +13,15 @@
 - [X] auth password
 - [X] auth Oauth2
 - [X] git unfuckup
+- [X] password auth comp
+- [X] server auth page
+- [X] auth status ui
 ---
-- [ ] log state
-- [ ] log out
+- [ ] clean up utils lib
 - [ ] auth refresh
+- [ ] temp info as cookie
 ---
 - [ ] Admin comps 
-- [ ] revalidate suspense
 - [ ] revalidation
 - [ ] pocketbase in server
 - [ ] embed maps

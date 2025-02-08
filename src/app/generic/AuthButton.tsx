@@ -5,9 +5,7 @@ import Image from "next/image"
 import { useSearchParams } from "next/navigation"
 import { useEffect } from "react"
 
-
-
-export default function Oauth2btn() {
+export default function AuthButton() {
   const searchParams = useSearchParams()
   const code = searchParams.get('code')
 
@@ -15,9 +13,7 @@ export default function Oauth2btn() {
     if (!code) return
     async function auth(code: string) { await Oauth2Auth(code) }
     auth(code)
-
-  }, [])
-
+  }, [code])
 
   async function handleClick() {
     window.location.assign(await Oauth2URL())
@@ -29,4 +25,4 @@ export default function Oauth2btn() {
       Conitnue with Google
     </button>
   )
-}
+} 

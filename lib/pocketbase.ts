@@ -29,16 +29,8 @@ export async function passwordAuth(formData: FormData) {
   try {
     await pb.collection('users').authWithPassword(email, password)
     await setAuthCookies()
-
-    return {
-      success: true,
-      message: 'Success',
-    }
   } catch (error: any) {
-    return {
-      success: false,
-      message: 'Login Failed',
-    }
+    console.log(error)
   }
 }
 
@@ -47,13 +39,9 @@ export async function Oauth2URL() {
   const provider = authMethods.oauth2.providers.find((p) => p.name === 'google')
 
   if (!provider) throw new Error('Google is only configured provider')
-
   temp = provider
 
-  const URL =
-    provider.authURL + encodeURIComponent('http://localhost:3000/auth')
-
-  return URL
+  return provider.authURL + encodeURIComponent('http://localhost:3000/auth')
 }
 
 export async function Oauth2Auth(code: string) {
@@ -70,6 +58,10 @@ export async function Oauth2Auth(code: string) {
   } catch (error: any) {
     console.log(error)
   }
+}
+
+export async function authRecord() {
+  return pb.authStore.record
 }
 
 export async function getAuthCookies() {
