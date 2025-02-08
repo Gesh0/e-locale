@@ -10,10 +10,10 @@
 - [X] locations
 - [X] go back comp
 - [X] auth page
----
 - [X] auth password
 - [X] auth Oauth2
-- [ ] git unfuckup
+- [X] git unfuckup
+---
 - [ ] log state
 - [ ] log out
 - [ ] auth refresh
